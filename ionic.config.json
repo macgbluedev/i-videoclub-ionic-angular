@@ -1,0 +1,7 @@
+{
+  "name": "iVideoclub_ionic-angular",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
