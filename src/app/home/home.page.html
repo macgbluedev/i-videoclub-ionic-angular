@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Welcome to</ion-card-subtitle>
+      <ion-card-title>¡Videoclub!</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      iVideoclub is an app developed with Ionic Framework. Click in the next buttom to access managament iVideoclub:
+    </ion-card-content>
+
+    <ion-item>
+      <ion-icon name="videocam" ></ion-icon>
+      <ion-button fill="clear" [routerLink]="['/videoclub']" style="color:black">Access iVideoclub</ion-button>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Info about author</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      App developed by Moisés Croes
+    </ion-card-content>
+
+    <ion-item>
+      <ion-icon name="person" ></ion-icon>
+      <ion-button fill="clear" [routerLink]="['/author']" style="color:black">More info</ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+
