@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorPage implements OnInit {
 
-  constructor() { }
+  autor: {
+    name: string,
+    email: string,
+    twitter: string,
+    phone: string
+  }
+
+  constructor() {
+    this.autor = {name: 'Moisés Croes',email:'moises@email.com',twitter:'@moises',phone:'555666777'}
+   }
 
   ngOnInit() {
   }
