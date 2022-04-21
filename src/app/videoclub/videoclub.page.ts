@@ -13,11 +13,15 @@ export class VideoclubPage implements OnInit {
   movies: Movie[];
 
   constructor(private router: Router, private moviesService: MoviesService ) { 
-    this.movies = this.moviesService.getPeliculas();
+    this.movies = this.moviesService.getMovies();
   }
 
 
   ngOnInit() {
+  }
+
+  showMovieDetails(id): void {
+    this.router.navigate(['/movie-details', id]);
   }
 
 }
