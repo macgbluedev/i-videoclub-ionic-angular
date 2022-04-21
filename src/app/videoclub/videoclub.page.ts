@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MoviesService} from '../shared/api/movies.service'
+import { Movie } from '../shared/models/movie.model';
 
 @Component({
   selector: 'app-videoclub',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoclubPage implements OnInit {
 
-  constructor() { }
+  movies: Movie[];
+
+  constructor(private router: Router, private moviesService: MoviesService ) { 
+    this.movies = this.moviesService.getPeliculas();
+  }
+
 
   ngOnInit() {
   }
