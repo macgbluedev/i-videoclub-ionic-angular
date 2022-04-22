@@ -16,7 +16,16 @@ export class MovieDetailsPage implements OnInit {
 
   ngOnInit() {
     const idMovie = this.activatedRouted.snapshot.paramMap.get('id');
-    this.movie = this.moviesService.getMovie(idMovie);
+    
+    //this.movie = this.moviesService.getMovie(idMovie);
+
+    this.moviesService.getMovie(idMovie).subscribe(
+      result => {
+        this.movie = result;
+      },
+      err => {
+        console.log(err);
+     });
   }
 
 }

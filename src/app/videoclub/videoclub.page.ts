@@ -15,7 +15,16 @@ export class VideoclubPage implements OnInit {
   hasMovieContent: boolean = true;
 
   constructor(private router: Router, private moviesService: MoviesService ) { 
-    this.movies = this.moviesService.getMovies();
+    //this.movies = this.moviesService.getMovies();
+
+    this.moviesService.getMovies().subscribe(
+      result => {
+        this.movies = result;
+      },
+      err => {
+        console.log(err);
+     }
+);
   }
 
 
