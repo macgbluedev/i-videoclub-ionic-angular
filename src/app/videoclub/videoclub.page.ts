@@ -11,6 +11,8 @@ import { Movie } from '../shared/models/movie.model';
 export class VideoclubPage implements OnInit {
 
   movies: Movie[];
+  isListView: boolean = true;
+  hasMovieContent: boolean = true;
 
   constructor(private router: Router, private moviesService: MoviesService ) { 
     this.movies = this.moviesService.getMovies();
@@ -22,6 +24,10 @@ export class VideoclubPage implements OnInit {
 
   showMovieDetails(id): void {
     this.router.navigate(['/movie-details', id]);
+  }
+
+  changeView(): void {
+    this.isListView = !this.isListView;
   }
 
 }

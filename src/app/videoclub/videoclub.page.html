@@ -5,12 +5,23 @@
     </ion-buttons>
 
     <ion-title>iVideoclub</ion-title>
+
+    <ion-buttons slot="secondary">
+      <ion-button *ngIf="isListView == true" (click)="changeView()">
+        <ion-icon slot="icon-only" name="apps-sharp"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="isListView == false" (click)="changeView()">
+        <ion-icon slot="icon-only" name="list-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-list>
+  <div *ngIf="hasMovieContent == true; else emptyContent">
+    <ion-list *ngIf="isListView == true; else isGridView">
       <ion-item *ngFor="let movie of movies" (click)="showMovieDetails(movie.id)" detail>
         <ion-thumbnail slot="start">
           <ion-img src="{{movie.poster}}"></ion-img>
@@ -22,5 +33,33 @@
         </ion-label>
       </ion-item>
   </ion-list>
+
+  <ng-template #isGridView>
+    <ion-grid>
+      <ion-row>
+        <ion-item *ngFor="let movie of movies" (click)="showMovieDetails(movie.id)" detail>
+          <ion-thumbnail slot="start">
+            <ion-img src="{{movie.poster}}"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{movie.title}}</h2>
+            <p>Director: {{movie.director}}</p>
+            <p>Year: {{movie.year}} </p>
+          </ion-label>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+
+  </div>
+
+  <ng-template #emptyContent>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Not found data movies</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ng-template>
+  
 
 </ion-content>
