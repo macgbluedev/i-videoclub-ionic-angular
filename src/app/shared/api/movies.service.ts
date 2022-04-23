@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class MoviesService {
 
-  API_MOVIES_URL: string = 'http://gbrain.dlsi.ua.es/videoclub/api/v1/catalog';
+  API_MOVIES_URL: string = 'https://i-videoclub-backend.herokuapp.com';
   // private movies: Movie[];
 
   constructor(public http: HttpClient) {
@@ -58,11 +58,11 @@ export class MoviesService {
 
   getMovies(): Observable<Movie[]> {
      //return this.movies;
-     return this.http.get<Movie[]>(this.API_MOVIES_URL);
+     return this.http.get<Movie[]>(this.API_MOVIES_URL + '/movie');
   }
 
   getMovie(id): Observable<Movie> {
     //return this.movies.find(movie => movie.id == id);
-    return this.http.get<Movie>(this.API_MOVIES_URL + '/' + id);
+    return this.http.get<Movie>(this.API_MOVIES_URL + '/movie/' + id);
  }
 }
